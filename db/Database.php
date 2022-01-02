@@ -1,21 +1,19 @@
 <?php
-class Database {
-    
-    private $host = 'localhost';
-    private $db_name = 'adise2021';
-    private $username = 'root'; 
-    private $conn;
-    
-    public function connect() {
-        $this->conn = null;
-     
-        try {
-            $this->conn = new PDO('mysql:host=' . $this->host . ';dbname= ' . $this->db_name, $this->username);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
-            echo 'Connection Error' .$e->getMessage();
-        }
-        return $this->conn;
-    }
+$host='localhost';
+$db = 'adise2021';
+require_once "Db_upass.php";
+
+$user=$DB_USER;
+$pass=$DB_PASS;
+
+$mysqli = new mysqli($host, $user, $pass, $db);
+	
+
+
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . 
+    $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
+
 ?>
+
