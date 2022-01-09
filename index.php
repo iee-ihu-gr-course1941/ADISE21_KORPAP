@@ -1,3 +1,14 @@
+<?php
+require_once 'db/Database.php';
+
+if(!isset($_SERVER ['PHP_AUTH_USER'])) {
+    header("WWW-Authenticate: Basic realm=\"Private Area\"");
+    header("HTTP/1.0 404 Unauthorized");
+    print "sorry";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
