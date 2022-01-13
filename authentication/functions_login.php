@@ -49,7 +49,8 @@ function uidExists($mysqli, $name) {
 
 function createUser($mysqli, $name) {
 
-    $sql = "INSERT INTO players (name) VALUES (?)";
+    $token = token();
+    $sql = "INSERT INTO players VALUES (default,'$name',NOW(),'',0)";
     $stmt = mysqli_stmt_init($mysqli);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
@@ -57,11 +58,11 @@ function createUser($mysqli, $name) {
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "s", $name);
+    // mysqli_stmt_bind_param($stmt, "s", $name);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location : signup.php");
+    header("location : login.php");
     exit();
 }
 
@@ -75,17 +76,45 @@ function emptyInputLogin($name) {
     return $result;
 }
 
+function token($length = 20)
+{
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$charactersLength = strlen($characters);
+	$randomString = '';
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $characters[rand(0, $charactersLength - 1)];
+	}
+	return $randomString;
+
+}
+
+
 function loginUser($mysqli, $name) {
     $uidExists = uidExists($mysqli, $name, $name);
-
-    if($uidExists === false) {
+ 
+    if($uidExists === false && isset($_SESSION['token'])) {
         header("location: login.php");
         exit();
     } else {
         session_start();
+        $_SESSION['token'] = token();
+        $sql = "UPDATE players SET token = '{$_SESSION['token']}' WHERE id = {$uidExists['id']}";
+        $stmt = mysqli_stmt_init($mysqli);
+
+        if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: login.php?error=stmtfailed");
+        exit();
+        }
+
+    // mysqli_stmt_bind_param($stmt, "s", $name);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
         $_SESSION["playername"] = $uidExists["name"];
         header("location: ../index.php");
         exit();
     }
        
-}     
+}
+
+
+
