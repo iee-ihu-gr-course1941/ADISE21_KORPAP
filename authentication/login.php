@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
+<?php
+
+include_once '../view/header.php';
+
+?>
 <body>
 
-<h2>Login</h2>
-<form action="login.inc.php" method="post">
-    <input type="text" name="name" placeholder="Name" required>
-    <button type="submit" name="submit">Login</button>
-</form>
-
+<div class="login">
+  <div class="form">
+    <form class="login-form" action="login.inc.php" method="post">
+      <span class="material-icons"><i class="fas fa-user"></i></span>
+      <input type="text" name ="name"placeholder="username" required />
+      <button type="submit" name="submit">Login</button>
+    </form>  
+  </div>
+</div>
 <?php
 
     if(isset($_GET["error"])) {
@@ -34,7 +34,5 @@
 }
 
 ?> 
-
-
 </body>
 </html>
