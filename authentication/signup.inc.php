@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST["submit"])) {
     
     $name = $_POST["name"];
@@ -18,9 +17,8 @@ if (isset($_POST["submit"])) {
         header("location: signup.php?error=usernametaken");
         exit();
     }
-
     createUser($mysqli, $name);
-
+    
 } else {
     header("location: login.php");
     exit();

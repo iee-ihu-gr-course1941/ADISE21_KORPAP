@@ -33,9 +33,8 @@ function deal_cards($cards, $players) {
         }
     }
 }
-
+//Create the whole game and re build the deck cards
 function start_game() {
-    //delete all deck cards
     global $mysqli;
 
     $sql = "DELETE FROM deck_cards";

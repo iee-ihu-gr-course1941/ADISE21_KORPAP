@@ -24,7 +24,7 @@ include_once '../view/header.php';
         echo "<p>Κάτι πήγε στραβά, προσπαθήστε ξανα</p>";
     } 
     else if($_GET["error"] == "none") {
-        echo "<p>You have login</p>";
+        echo "<p>Έχεις συνδεθεί</p>";
     }
     
 }

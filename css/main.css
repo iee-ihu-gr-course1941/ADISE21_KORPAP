@@ -192,3 +192,11 @@ img:focus {
 #countdown {
   font-size: 48px;
 }
+
+.player-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}

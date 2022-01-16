@@ -48,7 +48,7 @@ function uidExists($mysqli, $name) {
 }
 
 function createUser($mysqli, $name) {
-
+    
     $token = token();
     $sql = "INSERT INTO players VALUES (default,'$name',NOW(),'',0)";
     $stmt = mysqli_stmt_init($mysqli);

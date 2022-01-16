@@ -18,11 +18,15 @@ include_once './view/header.php';
 
 <body>
     <div class="container">
+
+    <button onclick="start_game()" class="button button--bubble">ΕΝΑΡΞΗ ΠΑΙΧΝΙΔΙΟΥ</button>
+    </div>
+    <div class="player-name">
     <h4>Όνομα Παίχτη: <?php 
     echo $_SESSION['playername'];
     ?></h4>
-    <button onclick="start_game()" class="button button--bubble">ΕΝΑΡΞΗ ΠΑΙΧΝΙΔΙΟΥ</button>
     </div>
+
     <div id="check-players"></div>
 </body>
 </html>

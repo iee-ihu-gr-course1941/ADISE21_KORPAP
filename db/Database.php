@@ -9,7 +9,6 @@ $pass=$DB_PASS;
 if (gethostname() == 'users.iee.ihu.gr') {
 	$mysqli = new mysqli($host, $user, $pass, $db,null,'/home/student/it/2015/it154586/mysql/run/mysql.sock');
 } else {
-		$pass=null;
         $mysqli = new mysqli($host, $user, '', $db);
 }
 
