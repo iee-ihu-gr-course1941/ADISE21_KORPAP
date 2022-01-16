@@ -8,7 +8,7 @@ async function start_game() {
     if (data.length > 1) {
         fetch('./db/Moutzouris.php/game-start').then(res => res.json()).then(data => {
             if (data.status == 200) {
-                window.location.href = '/~it154586/ADISE21_KORPAP/view/board.php';
+                window.location.href = './view/board.php';
             }
         })
     } else {
@@ -18,10 +18,10 @@ async function start_game() {
 }
 
 setInterval(async () => {
-    const response = await fetch('/~it154586/ADISE21_KORPAP/db/Moutzouris.php/board/get-status');
+    const response = await fetch('./db/Moutzouris.php/board/get-status');
     const data = await response.json();
     console.log(data);
     if (data.status.status == 'started') {
-        window.location.href = '/~it154586/ADISE21_KORPAP/view/board.php';
+        window.location.href = './view/board.php';
     }
 }, 2000)

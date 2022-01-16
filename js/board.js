@@ -108,7 +108,7 @@ function tick() {
         timeInSecs--;
     } else {
         clearInterval(ticker);
-        startTimer(5);
+        startTimer(10);
     }
     secs %= 60;
     var timer = (((secs < 10) ? "0" : "")) + secs;
@@ -116,4 +116,4 @@ function tick() {
     document.getElementById("countdown").innerHTML = timer;
 }
 
-startTimer(5);
+startTimer(10);

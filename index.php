@@ -1,5 +1,5 @@
 <?php
-require_once '/~it154586/ADISE21_KORPAP/db/Database.php';
+require_once './db/Database.php';
 
 session_start();
 if(!isset($_SESSION['token'])) {
@@ -18,7 +18,6 @@ include_once './view/header.php';
 
 <body>
     <div class="container">
-    <button onclick="getGameStatus()">Players</button>
     <h4>Όνομα Παίχτη: <?php 
     echo $_SESSION['playername'];
     ?></h4>

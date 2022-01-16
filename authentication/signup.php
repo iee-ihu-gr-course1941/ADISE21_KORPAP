@@ -1,11 +1,8 @@
 <?php
-
 include_once '../view/header.php';
-
 ?>
 
 <body>
-
 <div class="login">
   <div class="form">
     <form class="login-form" action="signup.inc.php" method="post">
