@@ -4,7 +4,7 @@ DROP DATABASE IF EXISTS `adise2021`;
 CREATE DATABASE`adise2021`;
 
 USE `adise2021`;
--- --------------------------------------------------------
+
 
 DROP TABLE IF EXISTS `cards`;
 CREATE TABLE `cards` (
@@ -132,51 +132,21 @@ INSERT INTO `players` (`id`, `name`, `last_action`, `token`, `player_turn`) VALU
 (45, 'a', '2022-01-16 13:31:19', 'wVAdBVXnZ4Ivj74EJJ0j', 1),
 (46, 'asd', '2022-01-16 12:21:22', 'W87FXpfnkIwm2b3B3fSw', 2);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cards`
---
 ALTER TABLE `cards`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `deck_cards`
---
 ALTER TABLE `deck_cards`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `players`
---
 ALTER TABLE `players`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cards`
---
 ALTER TABLE `cards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
---
--- AUTO_INCREMENT for table `deck_cards`
---
 ALTER TABLE `deck_cards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3527;
 
---
--- AUTO_INCREMENT for table `players`
---
 ALTER TABLE `players`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
