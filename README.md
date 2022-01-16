@@ -81,10 +81,11 @@ board
 ```
 /board/take_card
 ```
+
 get_opponent_card($request[0],$request[1],$request[2]);
+
 ```
  Η οποία παίρνει τις κάρτες του αντιπάλου και έχει 3 παράμετρους
-
 ```
 
 /board/remove_card 
