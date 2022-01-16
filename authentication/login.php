@@ -7,7 +7,7 @@ include_once '../view/header.php';
 
 <div class="login">
   <div class="form">
-    <form class="login-form" action="login.inc.php" method="post">
+    <form class="login-form" action="/~it154586/ADISE21_KORPAP/authentication/login.inc.php" method="post">
       <span class="material-icons"><i class="fas fa-user"></i></span>
       <input type="text" name ="name"placeholder="username" required />
       <button type="submit" name="submit">Login</button>
