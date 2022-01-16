@@ -7,7 +7,7 @@ include_once '../view/header.php';
   <div class="form">
     <form class="login-form" action="signup.inc.php" method="post">
       <span class="material-icons"><i class="fas fa-sign-in-alt"></i></span>
-      <input type="text" name ="name" placeholder="username" required />
+      <input type="text" name="username" placeholder="username" required />
       <button type="submit" name="submit">Sign Up</button>
     </form>  
   </div>

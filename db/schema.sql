@@ -121,7 +121,7 @@ INSERT INTO `game_status` (`status`, `p_turn`, `result`, `last_change`, `id`) VA
 
 DROP TABLE IF EXISTS `players`;
 CREATE TABLE `players` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `last_action` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `token` varchar(255) NOT NULL,

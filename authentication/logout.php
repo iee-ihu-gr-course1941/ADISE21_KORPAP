@@ -12,14 +12,14 @@ function logoutUser($mysqli) {
     mysqli_query($mysqli, $game_status_sql);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-    header("location: login.php?error=stmtfailed");
+    header("Location: login.php?error=stmtfailed");
     exit();
     }
 
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     session_destroy();
-    header("location: login.php");
+    header("Location: login.php");
     exit();
 }
 

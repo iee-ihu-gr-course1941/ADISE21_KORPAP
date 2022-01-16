@@ -1,6 +1,6 @@
 <?php
 
-require_once '../db/Database.php';
+include('../db/Database.php');
 
 function emptyInputSignup($name) {
     $result;
@@ -24,44 +24,31 @@ function invalidUid($name) {
 
 function uidExists($mysqli, $name) {
 
-    $sql = "SELECT * FROM players WHERE name = ?;";
-    $stmt = mysqli_stmt_init($mysqli);
+    $sql = "SELECT * FROM players WHERE name = '$name';";
+    $result = mysqli_query($mysqli, $sql);
 
-    if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: login.php?error=stmtfailed");
-        exit();
-    }
-
-    mysqli_stmt_bind_param($stmt, "s", $name);
-    mysqli_stmt_execute($stmt);
-
-    $resultData = mysqli_stmt_get_result($stmt);
-
-    if($row = mysqli_fetch_assoc($resultData)) {
+    if ($row = mysqli_fetch_assoc($result)) {
         return $row;
     } else {
         $result = false;
         return $result;
     }
-
-    mysqli_stmt_close($stmt);
 }
 
 function createUser($mysqli, $name) {
     
-    $token = token();
-    $sql = "INSERT INTO players VALUES (default,'$name',NOW(),'',0)";
+    $sql = "INSERT INTO players VALUES (default,'$name',NOW(),'',1)";
     $stmt = mysqli_stmt_init($mysqli);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: login.php?error=stmtfailed");
+        header("Location: login.php?error=stmtfailed");
         exit();
     }
 
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location : login.php");
+    header("Location : /~it154586/ADISE21_KORPAP/authentication/login.php");
     exit();
 }
 
@@ -91,9 +78,8 @@ function loginUser($mysqli, $name) {
 
     session_start();
     $uidExists = uidExists($mysqli, $name, $name);
- 
     if($uidExists === false && isset($_SESSION['token'])) {
-        header("location: ./login.php");
+        header("Location: ./login.php");
         exit();
     } else {
         $_SESSION['token'] = token();
@@ -102,14 +88,14 @@ function loginUser($mysqli, $name) {
         $stmt = mysqli_stmt_init($mysqli);
 
         if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ./login.php?error=stmtfailed");
+        header("Location: ./login.php?error=stmtfailed");
         exit();
         }
 
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         $_SESSION["playername"] = $uidExists["name"];
-        header("location: /~it154586/ADISE21_KORPAP/index.php");
+        header("Location: /~it154586/ADISE21_KORPAP/index.php");
         exit();
     }
        
