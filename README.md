@@ -67,10 +67,10 @@ https://users.iee.ihu.gr/~it154586/ADISE21_KORPAP/authentication/login.php
 game-start
 ```
 start_game();
-```
+
 Ξεκινά το παιχνίδι, μοιράζει τις κάρτες στους παίχτες ανακατεμένες
 
-```
+
 get-players
 ```
 
