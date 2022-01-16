@@ -90,7 +90,7 @@ get_opponent_card($request[0],$request[1],$request[2]);
 
 /board/remove_card 
 
-
+```
 remove_card($request[0],$request[1],$request[2]);
 ```
 Η οποία αφαιρεί τις κάρτες που έχουν ζευγαρώσει και έχει 3 παράμετρους
@@ -98,7 +98,7 @@ remove_card($request[0],$request[1],$request[2]);
 /board/get_status 
 ```
 Η οποία παίρνει την κατάσταση του παιχνιδιού
-
+```
 
 ## Entities
 
