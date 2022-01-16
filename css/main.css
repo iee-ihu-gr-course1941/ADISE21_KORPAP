@@ -165,6 +165,8 @@ nav {
   margin-top: auto;
   cursor: pointer;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 130px;
+  max-width: 5%;
 }
 .card:hover {
   transform: scale(0.7);
