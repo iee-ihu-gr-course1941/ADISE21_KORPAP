@@ -7,7 +7,6 @@ Table of Contents
       * [Απαιτήσεις](#απαιτήσεις)
       * [Οδηγίες Εγκατάστασης](#οδηγίες-εγκατάστασης)
    * [Περιγραφή API](#περιγραφή-api)
-         * [Board](#board)
       * [Entities](#entities)
          * [cards](#cards)
          * [deck_cards](#deck_cards)
