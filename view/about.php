@@ -4,6 +4,7 @@ include_once '../view/header.php';
 
 ?>
 <body>
+  <div class="about">
 <h1>Μουτζούρης</h1>
 <br>
 <p>Μουτζούρης, ένα από τα πιο εύκολα παιχνίδια για να παίξετε με την τράπουλα.</p>
@@ -34,6 +35,6 @@ include_once '../view/header.php';
    Παίχτες : Από 2 έως 6
    <br>
    Χαρτιά : 41 (Μία τράπουλα)
-
+   </div>
 </body>
 </html>

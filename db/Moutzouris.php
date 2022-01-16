@@ -11,7 +11,7 @@ switch ($r=array_shift($request)) {
     case 'game-start' :
         start_game();
         echo json_encode(array('status' => '200'));
-        $player_turn = player_turn();
+        // $player_turn = player_turn();
         break;
     case 'get-players' :
         $players = get_players();

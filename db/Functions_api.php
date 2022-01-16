@@ -17,7 +17,7 @@ function shuffle_cards() {
     shuffle($cards);
     return $cards;
 }
-
+// Give the shuffled cards into the connected players
 function deal_cards($cards, $players) {
     global $mysqli;
 
@@ -50,7 +50,7 @@ function start_game() {
         deal_cards($cards, $players);
     }
 }
-
+// Get the players that they have token
 function get_players() {
 
     global $mysqli;
@@ -66,7 +66,7 @@ function get_players() {
 
     return $players;
 }
-
+// Get the status of the board
 function get_status() {
     global $mysqli;
 
@@ -76,6 +76,7 @@ function get_status() {
     return $result->fetch_assoc();
 }
 
+// Inner join the 2 tables cards and deck_cards to give them on the players
 function get_player_cards(){
     global $mysqli;
 
@@ -93,33 +94,16 @@ function get_player_cards(){
     }
     return $cards_by_user;
 }
+// Not calling it somewhere
+// function game_over() {
+//     global $mysqli;
 
-function game_over() {
-    global $mysqli;
+//     $sql = "UPDATE game_status SET status = 'ended' WHERE id = 0 ";
+//     $result = mysqli_query($mysqli, $sql);
+//     return $result;
+// }
 
-    $sql = "UPDATE game_status SET status = 'ended' WHERE id = 0 ";
-    $result = mysqli_query($mysqli, $sql);
-    return $result;
-}
-
-function player_turn() {
-    global $mysqli;
-
-    $sql = "SELECT id FROM players WHERE token != '' ";
-    $result = mysqli_query($mysqli, $sql);
-    $player_turn = array();
-
-    $count = 1;
-
-    while($row = $result -> fetch_assoc()) {
-        array_push($player_turn, array($row['id'] => $count));
-        $sql = "UPDATE players SET player_turn='$count' WHERE id = '{$row['id']}'";
-        mysqli_query($mysqli, $sql);
-        $count++;
-    }
-    return $player_turn;
-}
-
+// Remove the card from your hand if you match the same cards
 function remove_card($player_id, $id_card1, $id_card2) {
     session_start();
     global $mysqli;
@@ -136,6 +120,7 @@ function remove_card($player_id, $id_card1, $id_card2) {
     
 }
 
+// Get from your opponent one card
 function get_opponent_card($card_id, $my_id, $opponent_id){
     global $mysqli;
     

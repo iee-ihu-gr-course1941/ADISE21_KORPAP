@@ -1,44 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jan 16, 2022 at 02:41 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+DROP DATABASE IF EXISTS `adise2021`;
 
+CREATE DATABASE`adise2021`;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `adise2021`
---
-CREATE DATABASE IF NOT EXISTS `adise2021` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `adise2021`;
-
-DELIMITER $$
---
--- Procedures
---
-DROP PROCEDURE IF EXISTS `reset_cards`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_cards` (IN `reset` VARCHAR(255))  BEGIN
-        UPDATE cards set player = NULL;
-END$$
-
-DELIMITER ;
-
 -- --------------------------------------------------------
-
---
--- Table structure for table `cards`
---
 
 DROP TABLE IF EXISTS `cards`;
 CREATE TABLE `cards` (
@@ -46,11 +12,7 @@ CREATE TABLE `cards` (
   `symbol` varchar(1) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cards`
---
+);
 
 INSERT INTO `cards` (`number`, `symbol`, `image`, `id`) VALUES
 (1, 'C', 'https://i.ibb.co/zm2XGGs/ace-of-clubs.png', 1),
@@ -95,22 +57,12 @@ INSERT INTO `cards` (`number`, `symbol`, `image`, `id`) VALUES
 (9, 'D', 'https://i.ibb.co/vmCgv2x/9-of-diamonds.png', 40),
 (10, 'D', 'https://i.ibb.co/Ct4nXk7/10-of-diamonds.png', 41);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `deck_cards`
---
-
 DROP TABLE IF EXISTS `deck_cards`;
 CREATE TABLE `deck_cards` (
   `id_card` int(11) NOT NULL,
   `id_player` int(11) NOT NULL,
   `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `deck_cards`
---
+);
 
 INSERT INTO `deck_cards` (`id_card`, `id_player`, `id`) VALUES
 (10, 45, 3486),
@@ -155,12 +107,6 @@ INSERT INTO `deck_cards` (`id_card`, `id_player`, `id`) VALUES
 (15, 46, 3525),
 (33, 45, 3526);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `game_status`
---
-
 DROP TABLE IF EXISTS `game_status`;
 CREATE TABLE `game_status` (
   `status` enum('not active','initialized','started','ended','aborded') NOT NULL DEFAULT 'not active',
@@ -168,20 +114,10 @@ CREATE TABLE `game_status` (
   `result` enum('L','N') DEFAULT NULL,
   `last_change` timestamp NULL DEFAULT NULL,
   `id` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `game_status`
---
+);
 
 INSERT INTO `game_status` (`status`, `p_turn`, `result`, `last_change`, `id`) VALUES
 ('started', 'L', NULL, '2022-01-16 12:48:34', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `players`
---
 
 DROP TABLE IF EXISTS `players`;
 CREATE TABLE `players` (
@@ -190,11 +126,7 @@ CREATE TABLE `players` (
   `last_action` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `token` varchar(255) NOT NULL,
   `player_turn` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `players`
---
+);
 
 INSERT INTO `players` (`id`, `name`, `last_action`, `token`, `player_turn`) VALUES
 (45, 'a', '2022-01-16 13:31:19', 'wVAdBVXnZ4Ivj74EJJ0j', 1),
