@@ -98,7 +98,9 @@ remove_card($request[0],$request[1],$request[2]);
 /board/get_status 
 ```
 Η οποία παίρνει την κατάσταση του παιχνιδιού
-```
+
+
+
 
 ## Entities
 
