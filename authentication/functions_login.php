@@ -88,13 +88,14 @@ function token($length = 20)
 }
 
 function loginUser($mysqli, $name) {
+
+    session_start();
     $uidExists = uidExists($mysqli, $name, $name);
  
     if($uidExists === false && isset($_SESSION['token'])) {
         header("location: ./login.php");
         exit();
     } else {
-        session_start();
         $_SESSION['token'] = token();
         $_SESSION['id_player'] = $uidExists['id'];
         $sql = "UPDATE players SET token = '{$_SESSION['token']}' WHERE id = {$uidExists['id']}";
