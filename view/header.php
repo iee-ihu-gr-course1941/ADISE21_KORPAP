@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Μουτζούρης</title>
-    <link rel="stylesheet" href="/ADISE21_KORPAP/css/main.css">
+    <link rel="stylesheet" href="/~it154586/ADISE21_KORPAP/css/main.css">
 </head>
 <header>
     <nav class="">
@@ -19,18 +19,18 @@
         <ul class="nav-links">
             <?php
             if(!isset($_SESSION['token'] )) {
-                echo  '<li><a href="/ADISE21_KORPAP/authentication/login.php">Login</a></li>';
+                echo  '<li><a href="/~it154586/ADISE21_KORPAP/authentication/login.php">Login</a></li>';
                 } else {
                     echo '<li></li>';;
                 }
             ?>
             
-            <li><a href="/ADISE21_KORPAP/authentication/signup.php">Sign Up</a></li>
-            <li><a href="/ADISE21_KORPAP/view/about.php">About</a></li>
+            <li><a href="/~it154586/ADISE21_KORPAP/authentication/signup.php">Sign Up</a></li>
+            <li><a href="/~it154586/ADISE21_KORPAP/view/about.php">About</a></li>
             <?php
 
             if(isset($_SESSION['token'] )) {
-           echo  '<li><a href="/ADISE21_KORPAP/authentication/logout.php">Logout</a></li>';
+           echo  '<li><a href="/~it154586/ADISE21_KORPAP/authentication/logout.php">Logout</a></li>';
             } else {
                 echo '<li></li>';;
             }

@@ -7,7 +7,7 @@ async function get_status() {
 
     if (data.status.status == 'aborded') {
         alert('Το παιχνίδι διακόπηκε');
-        window.location.href = '/ADISE21_KORPAP/authentication/logout.php';
+        window.location.href = '/~it154586/ADISE21_KORPAP/authentication/logout.php';
     } else
 
     if (data.status.status == 'not active') {

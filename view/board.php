@@ -2,7 +2,7 @@
 require_once '../db/Database.php';
 session_start();
 if(!isset($_SESSION['token'])) {
-    header("location: /ADISE21_KORPAP/authentication/login.php");
+    header("location: /~it154586/ADISE21_KORPAP/authentication/login.php");
 }
 include_once '../view/header.php';
 ?>

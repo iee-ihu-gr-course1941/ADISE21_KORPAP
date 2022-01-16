@@ -13,7 +13,7 @@ if(isset($_SESSION['token'])) {
 include_once './view/header.php';
 
 ?>
-<script src="/ADISE21_KORPAP/js/main.js"></script>
+<script src="/~it154586/ADISE21_KORPAP/js/main.js"></script>
 
 
 <body>
