@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2022 at 04:55 PM
+-- Generation Time: Jan 16, 2022 at 02:41 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -22,6 +22,17 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `adise2021` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `adise2021`;
+
+DELIMITER $$
+--
+-- Procedures
+--
+DROP PROCEDURE IF EXISTS `reset_cards`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_cards` (IN `reset` VARCHAR(255))  BEGIN
+        UPDATE cards set player = NULL;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -97,6 +108,53 @@ CREATE TABLE `deck_cards` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `deck_cards`
+--
+
+INSERT INTO `deck_cards` (`id_card`, `id_player`, `id`) VALUES
+(10, 45, 3486),
+(12, 46, 3487),
+(37, 45, 3488),
+(9, 46, 3489),
+(3, 45, 3490),
+(23, 46, 3491),
+(16, 45, 3492),
+(14, 46, 3493),
+(35, 45, 3494),
+(27, 46, 3495),
+(36, 45, 3496),
+(2, 46, 3497),
+(1, 45, 3498),
+(40, 46, 3499),
+(28, 45, 3500),
+(6, 46, 3501),
+(34, 45, 3502),
+(20, 46, 3503),
+(41, 45, 3504),
+(19, 46, 3505),
+(24, 45, 3506),
+(18, 46, 3507),
+(21, 45, 3508),
+(39, 46, 3509),
+(7, 45, 3510),
+(22, 46, 3511),
+(38, 45, 3512),
+(25, 46, 3513),
+(5, 45, 3514),
+(8, 46, 3515),
+(30, 45, 3516),
+(17, 46, 3517),
+(26, 45, 3518),
+(4, 46, 3519),
+(32, 45, 3520),
+(13, 46, 3521),
+(29, 45, 3522),
+(31, 46, 3523),
+(11, 45, 3524),
+(15, 46, 3525),
+(33, 45, 3526);
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +175,7 @@ CREATE TABLE `game_status` (
 --
 
 INSERT INTO `game_status` (`status`, `p_turn`, `result`, `last_change`, `id`) VALUES
-('started', 'L', NULL, '2022-01-14 18:06:59', 0);
+('started', 'L', NULL, '2022-01-16 12:48:34', 0);
 
 -- --------------------------------------------------------
 
@@ -133,6 +191,14 @@ CREATE TABLE `players` (
   `token` varchar(255) NOT NULL,
   `player_turn` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `players`
+--
+
+INSERT INTO `players` (`id`, `name`, `last_action`, `token`, `player_turn`) VALUES
+(45, 'a', '2022-01-16 13:31:19', 'wVAdBVXnZ4Ivj74EJJ0j', 1),
+(46, 'asd', '2022-01-16 12:21:22', 'W87FXpfnkIwm2b3B3fSw', 2);
 
 --
 -- Indexes for dumped tables
@@ -170,13 +236,13 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT for table `deck_cards`
 --
 ALTER TABLE `deck_cards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3527;
 
 --
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
