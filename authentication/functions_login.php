@@ -109,7 +109,7 @@ function loginUser($mysqli, $name) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         $_SESSION["playername"] = $uidExists["name"];
-        header("location: ../index.php");
+        header("location: /~it154586/ADISE21_KORPAP/index.php");
         exit();
     }
        
