@@ -5,41 +5,26 @@ session_start();
 if(!isset($_SESSION['token'])) {
     header("location: authentication/login.php");
 }
+if(isset($_SESSION['token'])) {
+    if(isset($_SESSION['game_status'])  == 'aborded') {
+        header("location: authentication/signup.php");
+    }
+}
 include_once './view/header.php';
+
 ?>
+<script src="/ADISE21_KORPAP/js/main.js"></script>
+
 
 <body>
     <div class="container">
-    <h1></h1>
     <button onclick="getGameStatus()">Players</button>
-    <section class="chat">
-        <div class="chathistory"></div>
-        <div class="chatbox">
-            <form action="" method="POST">
-                <textarea name="message" cols="30" rows="10"></textarea>
-            </form>    
-        </div>
-    </section>
+    <h4>Όνομα Παίχτη: <?php 
+    echo $_SESSION['playername'];
+    ?></h4>
+    <button onclick="start_game()" class="button button--bubble">ΕΝΑΡΞΗ ΠΑΙΧΝΙΔΙΟΥ</button>
     </div>
+    <div id="check-players"></div>
 </body>
-<script>
-    async function test(){
-       const response = await fetch('./db/Moutzouris.php/game-start');
-       const data = await response.json();
-       console.log(data);
-        // .then(res => res.json()).then(data => console.log(data))
-    }
-
-    async function getGameStatus(){
-        const response = await fetch('./db/Moutzouris.php/board/get-status');
-        const data = await response.json();
-        console.log(data);
-        if (data.status == 'aborded'){
-            alert('aborted');
-        }
-    }
-
-    // setInteval(getGameStatus, 3000);
-</script>
 </html>
 

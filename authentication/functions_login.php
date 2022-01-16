@@ -58,7 +58,6 @@ function createUser($mysqli, $name) {
         exit();
     }
 
-    // mysqli_stmt_bind_param($stmt, "s", $name);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -88,7 +87,6 @@ function token($length = 20)
 
 }
 
-
 function loginUser($mysqli, $name) {
     $uidExists = uidExists($mysqli, $name, $name);
  
@@ -98,6 +96,7 @@ function loginUser($mysqli, $name) {
     } else {
         session_start();
         $_SESSION['token'] = token();
+        $_SESSION['id_player'] = $uidExists['id'];
         $sql = "UPDATE players SET token = '{$_SESSION['token']}' WHERE id = {$uidExists['id']}";
         $stmt = mysqli_stmt_init($mysqli);
 
@@ -106,7 +105,6 @@ function loginUser($mysqli, $name) {
         exit();
         }
 
-    // mysqli_stmt_bind_param($stmt, "s", $name);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         $_SESSION["playername"] = $uidExists["name"];

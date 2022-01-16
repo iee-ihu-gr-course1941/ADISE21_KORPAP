@@ -13,26 +13,23 @@ include_once '../view/header.php';
       <button type="submit" name="submit">Login</button>
     </form>  
   </div>
-</div>
-<?php
-
+  <?php
     if(isset($_GET["error"])) {
         if($_GET["error"] == "emptyinput") {
-            echo "<p>Fill in all fields</p>";
+            echo "<p>Παρακαλώ συμπληρώστε το πεδίο</p>";
         }
      else if($_GET["error"] == "invaliduid") {
-        echo "<p>Choose a proper player name</p>";
+        echo "<p>Διαλέξτε ένα κατάλληλο όνομα</p>";
     } else if($_GET["error"] == "stmtfailed") {
-        echo "<p>Something went wrong</p>";
-    } else if($_GET["error"] == "usernametaken") {
-        echo "<p>Username taken</p>";
-    }
+        echo "<p>Κάτι πήγε στραβά, προσπαθήστε ξανα</p>";
+    } 
     else if($_GET["error"] == "none") {
         echo "<p>You have login</p>";
     }
     
 }
-
 ?> 
+</div>
+
 </body>
 </html>
