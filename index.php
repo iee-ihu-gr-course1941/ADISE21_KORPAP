@@ -1,5 +1,5 @@
 <?php
-require_once 'db/Database.php';
+require_once '/~it154586/ADISE21_KORPAP/db/Database.php';
 
 session_start();
 if(!isset($_SESSION['token'])) {
