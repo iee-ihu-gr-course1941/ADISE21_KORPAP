@@ -67,6 +67,7 @@ https://users.iee.ihu.gr/~it154586/ADISE21_KORPAP/authentication/login.php
 game-start
 ```
 start_game();
+```
 Ξεκινά το παιχνίδι, μοιράζει τις κάρτες στους παίχτες ανακατεμένες
 
 ```
@@ -79,17 +80,22 @@ get-players
 board
 ```
 /board/take_card
-
+```
 get_opponent_card($request[0],$request[1],$request[2]);
+```
  Η οποία παίρνει τις κάρτες του αντιπάλου και έχει 3 παράμετρους
+
+```
 
 /board/remove_card 
 
+```
 remove_card($request[0],$request[1],$request[2]);
+```
 Η οποία αφαιρεί τις κάρτες που έχουν ζευγαρώσει και έχει 3 παράμετρους
-
+```
 /board/get_status 
-
+```
 Η οποία παίρνει την κατάσταση του παιχνιδιού
 
 
