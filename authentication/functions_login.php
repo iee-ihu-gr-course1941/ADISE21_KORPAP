@@ -91,7 +91,7 @@ function loginUser($mysqli, $name) {
     $uidExists = uidExists($mysqli, $name, $name);
  
     if($uidExists === false && isset($_SESSION['token'])) {
-        header("location: login.php");
+        header("location: ./login.php");
         exit();
     } else {
         session_start();
@@ -101,7 +101,7 @@ function loginUser($mysqli, $name) {
         $stmt = mysqli_stmt_init($mysqli);
 
         if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: login.php?error=stmtfailed");
+        header("location: ./login.php?error=stmtfailed");
         exit();
         }
 

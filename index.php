@@ -3,11 +3,11 @@ require_once 'db/Database.php';
 
 session_start();
 if(!isset($_SESSION['token'])) {
-    header("location: authentication/login.php");
+    header("location: ./authentication/login.php");
 }
 if(isset($_SESSION['token'])) {
     if(isset($_SESSION['game_status'])  == 'aborded') {
-        header("location: authentication/signup.php");
+        header("location: ./authentication/signup.php");
     }
 }
 include_once './view/header.php';
